@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item android:title="Mode">
+        <menu>
+        <item
+            android:id="@+id/nav_instant_controller"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Instant Controller Mode" />
+        <item
+            android:id="@+id/nav_scheduler"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Scheduler Mode" />
+        <!--
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Slideshow" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Tools" />
+        -->
+        </menu>
+        </item>
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_pair"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Pair Smart Lamp Controller" />
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_menu_send"
+                android:title="About" />
+        </menu>
+    </item>
+
+
+</menu>
