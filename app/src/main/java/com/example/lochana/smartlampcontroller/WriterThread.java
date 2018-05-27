@@ -9,7 +9,6 @@ import java.util.concurrent.LinkedBlockingQueue;
 /**
  * An easy and good implementation for the HC-05 bluetooth component
  *
- * @author Giovanni Terlingen
  */
 class WriterThread extends Thread {
 

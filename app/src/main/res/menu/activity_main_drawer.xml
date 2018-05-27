@@ -8,22 +8,12 @@
         <menu>
         <item
             android:id="@+id/nav_instant_controller"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_control_point_duplicate_black_24dp"
             android:title="Instant Controller Mode" />
         <item
             android:id="@+id/nav_scheduler"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_schedule_black_24dp"
             android:title="Scheduler Mode" />
-        <!--
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
-        -->
         </menu>
         </item>
     </group>
@@ -32,11 +22,11 @@
         <menu>
             <item
                 android:id="@+id/nav_pair"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/ic_bluetooth_connected_black_24dp"
                 android:title="Pair Smart Lamp Controller" />
             <item
                 android:id="@+id/nav_about"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/ic_info_black_24dp"
                 android:title="About" />
         </menu>
     </item>
