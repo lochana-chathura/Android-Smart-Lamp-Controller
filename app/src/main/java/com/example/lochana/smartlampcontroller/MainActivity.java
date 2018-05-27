@@ -37,11 +37,14 @@ public class MainActivity extends AppCompatActivity
     private static BluetoothSocket bluetoothSocket;
     private static ConnectTask connectTask;
     private static WriterThread writerThread;
+
+    String schedulerString;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        String msg=getIntent().getStringExtra("msg_key");
         // assign the widgets specified in the layout xml file
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -123,13 +126,16 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_instant_controller) {
-            // Handle the camera action
+            Intent intent =   new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_scheduler) {
-
+            Intent i =   new Intent(getApplicationContext(),SchedulerActivity.class);
+            startActivityForResult(i,1);
         } else if (id == R.id.nav_pair) {
 
         } else if (id == R.id.nav_about) {
-
+            Intent intent =   new Intent(getApplicationContext(),AboutActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -150,6 +156,19 @@ public class MainActivity extends AppCompatActivity
             MainActivity.writerThread.queueSend(command.getBytes());
         } else {
             MainActivity.this.connectionState.setText("could not send command \"" + command + "\" because there is no socket connection");
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1){
+            if (resultCode == RESULT_OK){
+                schedulerString=data.getStringExtra("txtFromScheduler");
+                //TextView txt_test = findViewById(R.id.txt_test);
+                //txt_test.setText(schedulerString);
+                MainActivity.this.sendCommand(schedulerString);
+            }
         }
     }
 
@@ -218,7 +237,7 @@ public class MainActivity extends AppCompatActivity
 
         @Override
         protected String doInBackground(String... params) {
-            try {
+          try {
                 // we need to enable the bluetooth first in order to make this app working
                 if (!bluetoothAdapter.isEnabled()) {
                     publishProgress("bluetooth was not enabled, enabling...");
@@ -266,6 +285,7 @@ public class MainActivity extends AppCompatActivity
                 }
                 return "failure due " + e.getMessage();
             }
+
         }
 
         @Override
